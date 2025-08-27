@@ -1,9 +1,9 @@
 package com.example.shinchi_apetcareapp;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,44 +13,44 @@ import android.widget.Toast;
 
 public class ProductGromming extends Fragment {
 
-    // Correctly reference the listener from the top-level interface file
-    private CartUpdateListener listener;
-    private Button addToCartButton;
+    private static final String PREFS_NAME = "cart_prefs";
+    private static final String CART_COUNT_KEY = "cart_count";
 
     @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof CartUpdateListener) {
-            listener = (CartUpdateListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement CartUpdateListener");
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Corrected layout file name to match the corrected spelling.
         View view = inflater.inflate(R.layout.fragment_product_gromming, container, false);
+
+        Button addToCartBtn = view.findViewById(R.id.grooming_btn);
+        Button goToCartBtn = view.findViewById(R.id.go_to_cart_btn);
+
+        if (addToCartBtn != null) {
+            addToCartBtn.setOnClickListener(v -> {
+                incrementCartCount();
+                Toast.makeText(getContext(), "Grooming item added to cart!", Toast.LENGTH_SHORT).show();
+            });
+        }
+
+        if (goToCartBtn != null) {
+            goToCartBtn.setOnClickListener(v -> {
+                Toast.makeText(getContext(), "Navigating to cart!", Toast.LENGTH_SHORT).show();
+                // Add navigation logic to go to the cart activity/fragment
+            });
+        }
+
         return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        addToCartButton = view.findViewById(R.id.addToCartButton);
-
-        addToCartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onAddToCart();
-                Toast.makeText(getContext(), "Dog Shampoo added to cart!", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
+    // Increments the cart count and saves it.
+    private void incrementCartCount() {
+        if (getContext() != null) {
+            SharedPreferences prefs = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+            int currentCount = prefs.getInt(CART_COUNT_KEY, 0);
+            currentCount++;
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt(CART_COUNT_KEY, currentCount);
+            editor.apply();
+        }
     }
 }
