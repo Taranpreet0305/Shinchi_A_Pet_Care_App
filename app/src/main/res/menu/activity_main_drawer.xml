@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profile"
+        android:icon="@drawable/user" />
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="Home"
+        android:icon="@drawable/ic_home" />
+
+    <item
+        android:id="@+id/nav_grooming"
+        android:title="Pet Grooming"
+        android:icon="@drawable/ic_pets" />
+
+    <item
+        android:id="@+id/nav_care"
+        android:title="Pet Care"
+        android:icon="@drawable/ic_health" />
+
+    <item
+        android:id="@+id/nav_products"
+        android:title="Pet Products"
+        android:icon="@drawable/ic_shopping" />
+
+</menu>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Style for NavigationView Menu Item Text -->
+    <style name="CustomNavigationViewItemTextStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:textSize">30dp</item>
+    </style>
+
+    <style name="ShapeAppearance.App.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+</resources>

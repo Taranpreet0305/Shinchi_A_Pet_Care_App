@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "960206825131",
+    "project_id": "shinchi-a-pet-care-app",
+    "storage_bucket": "shinchi-a-pet-care-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960206825131:android:763692d2af45d493ceb9ee",
+        "android_client_info": {
+          "package_name": "com.example.shinchi_apetcareapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyGnVKv9xx6AU9NpqDQfsiALYfww4lhzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
