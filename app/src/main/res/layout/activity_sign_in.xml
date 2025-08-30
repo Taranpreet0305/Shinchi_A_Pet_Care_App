@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.019" />
 
     <EditText
-        android:id="@+id/Email"
+        android:id="@+id/SignEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/inputfielddraw"
@@ -66,7 +66,7 @@
         app:layout_constraintVertical_bias="0.044" />
 
     <EditText
-        android:id="@+id/Password"
+        android:id="@+id/SignPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/inputfielddraw"
@@ -83,7 +83,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline_end"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@+id/Email"
+        app:layout_constraintTop_toBottomOf="@+id/SignEmail"
         app:layout_constraintVertical_bias="0.062" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -101,7 +101,7 @@
         app:layout_constraintGuide_percent="0.8" />
 
     <Button
-        android:id="@+id/tvSignIn"
+        android:id="@+id/btnSignIn"
         android:layout_width="163dp"
         android:layout_height="49dp"
         android:background="@drawable/buttondraw"
@@ -112,7 +112,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password"
+        app:layout_constraintTop_toBottomOf="@+id/SignPassword"
         app:layout_constraintVertical_bias="0.081" />
 
     <TextView
@@ -129,7 +129,7 @@
         app:layout_constraintVertical_bias="0.025" />
 
     <TextView
-        android:id="@+id/tvCreateAccount"
+        android:id="@+id/btnToRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register Now"

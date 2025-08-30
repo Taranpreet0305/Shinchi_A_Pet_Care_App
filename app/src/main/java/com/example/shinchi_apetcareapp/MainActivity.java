@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth; // Import Firebase Auth
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -27,11 +28,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ImageView Btn2;
     ImageView Btn3;
 
+    // Add a FirebaseAuth instance
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); // Make sure this is your layout
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         drawerLayout = findViewById(R.id.drawer_layout_main);
         navigationView = findViewById(R.id.nav_view_main);
@@ -82,8 +88,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     // --- Handle Navigation Drawer item clicks ---
-// In MainActivity.java
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -103,16 +107,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             } else if (id == R.id.nav_products) {
                 Intent intent = new Intent(MainActivity.this, com.example.shinchi_apetcareapp.product_category.class);
                 startActivity(intent);
-            } else if(id == R.id.nav_profile){
-                Intent intent = new Intent(MainActivity.this, com.example.shinchi_apetcareapp.Profile_Page.class);
-                startActivity(intent);
-            }
-            else {
+            } else if (id == R.id.nav_profile) {
+                // Check if user is authenticated
+                if (mAuth.getCurrentUser() != null) {
+                    // User is authenticated, go to Profile Page
+                    Intent intent = new Intent(MainActivity.this, com.example.shinchi_apetcareapp.Profile_Page.class);
+                    startActivity(intent);
+                } else {
+                    // User is not authenticated, go to Sign In page
+                    Intent intent = new Intent(MainActivity.this, com.example.shinchi_apetcareapp.SignIn.class);
+                    startActivity(intent);
+                }
+            } else {
                 Toast.makeText(MainActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
             }
         }, 250);
 
         return true;
     }
-
 }

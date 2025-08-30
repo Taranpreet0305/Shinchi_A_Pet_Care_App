@@ -19,9 +19,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Shinchi">
         <activity
-            android:name=".add"
-            android:exported="false" />
-        <activity
             android:name=".PaymentPage"
             android:exported="false" />
         <activity
@@ -32,6 +29,9 @@
             android:exported="false" />
         <activity
             android:name=".RegisterPage"
+            android:exported="false" />
+        <activity
+            android:name=".UserDetails"
             android:exported="false" />
         <activity
             android:name=".NavHeaderMainActivity"

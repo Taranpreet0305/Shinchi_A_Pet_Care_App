@@ -7,7 +7,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox; // For Terms and Conditions
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -16,7 +16,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.shinchi_apetcareapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,8 +28,8 @@ public class RegisterPage extends AppCompatActivity {
 
     private EditText etName, etEmail, etPassword;
     private Button btnRegister;
-    private TextView tvSignInLink; // Should be btnSignIn based on your XML
-    private CheckBox cbTerms;      // For Terms and Conditions
+    private TextView tvSignInLink;
+    private CheckBox cbTerms;
     private ProgressBar progressBar;
 
     private FirebaseAuth mAuth;
@@ -42,12 +41,13 @@ public class RegisterPage extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        etName = findViewById(R.id.Name);
-        etEmail = findViewById(R.id.Email);
-        etPassword = findViewById(R.id.Password);
+        etName = findViewById(R.id.RegName);
+        etEmail = findViewById(R.id.RegEmail);
+        etPassword = findViewById(R.id.RegPassword);
         btnRegister = findViewById(R.id.btnRegister);
-        tvSignInLink = findViewById(R.id.btnSignIn); // Corrected ID from your XML
-        cbTerms = findViewById(R.id.cbTerms);       // From your XML
+        tvSignInLink = findViewById(R.id.btnSignIn);
+        cbTerms = findViewById(R.id.cbTerms);
+
         // progressBar = findViewById(R.id.your_progress_bar_id); // Initialize if you added one
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +62,6 @@ public class RegisterPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(RegisterPage.this, SignIn.class);
                 startActivity(intent);
-                // finish(); // Optional: if you don't want users to go back to Register page
             }
         });
     }
@@ -107,14 +106,14 @@ public class RegisterPage extends AppCompatActivity {
             return;
         }
 
-        if (progressBar != null) progressBar.setVisibility(View.VISIBLE);
+        // if (progressBar != null) progressBar.setVisibility(View.VISIBLE);
         btnRegister.setEnabled(false);
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (progressBar != null) progressBar.setVisibility(View.GONE);
+                        // if (progressBar != null) progressBar.setVisibility(View.GONE);
                         btnRegister.setEnabled(true);
 
                         if (task.isSuccessful()) {
@@ -124,7 +123,7 @@ public class RegisterPage extends AppCompatActivity {
 
                             if (user != null) {
                                 // Navigate to UserDetailsActivity (which will host UserDetails fragment)
-                                Intent intent = new Intent(RegisterPage.this, UserDetails.class); // <--- THIS ACTIVITY NEEDS TO EXIST
+                                Intent intent = new Intent(RegisterPage.this, UserDetails.class);
                                 intent.putExtra("USER_UID", user.getUid());
                                 intent.putExtra("USER_NAME", name);
                                 intent.putExtra("USER_EMAIL", email);
@@ -144,4 +143,3 @@ public class RegisterPage extends AppCompatActivity {
                 });
     }
 }
-

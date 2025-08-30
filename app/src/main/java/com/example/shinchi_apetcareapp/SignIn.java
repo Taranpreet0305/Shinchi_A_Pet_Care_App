@@ -1,13 +1,13 @@
-package com.example.shinchi_apetcareapp; // Or your actual package
+package com.example.shinchi_apetcareapp;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar; // Optional
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,26 +22,32 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignIn extends AppCompatActivity {
 
-    private static final String TAG = "SignInActivity";
+    private static final String TAG = "SignInPage";
 
     private EditText etEmail, etPassword;
     private Button btnSignIn;
     private TextView tvRegisterLink;
-    private ProgressBar progressBar; // Optional
 
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in); // Use your sign_in_page.xml
+        setContentView(R.layout.activity_sign_in);
 
         mAuth = FirebaseAuth.getInstance();
 
-        etEmail = findViewById(R.id.Email);
-        etPassword = findViewById(R.id.Password);
+        // Check if the user is already signed in
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(SignIn.this, MainActivity.class));
+            finish();
+            return;
+        }
+
+        etEmail = findViewById(R.id.SignEmail);
+        etPassword = findViewById(R.id.SignPassword);
         btnSignIn = findViewById(R.id.btnSignIn);
-        tvRegisterLink = findViewById(R.id.tvCreateAccount);
+        tvRegisterLink = findViewById(R.id.btnToRegister);
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,23 +59,10 @@ public class SignIn extends AppCompatActivity {
         tvRegisterLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to RegisterActivity
                 Intent intent = new Intent(SignIn.this, RegisterPage.class);
                 startActivity(intent);
-                finish(); // Optional: finish SignInActivity
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            // User is already signed in, navigate to main activity
-            navigateToMainApp();
-        }
     }
 
     private void signInUser() {
@@ -82,7 +75,7 @@ public class SignIn extends AppCompatActivity {
             return;
         }
 
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             etEmail.setError("Enter a valid email.");
             etEmail.requestFocus();
             return;
@@ -94,32 +87,26 @@ public class SignIn extends AppCompatActivity {
             return;
         }
 
-        // if (progressBar != null) progressBar.setVisibility(View.VISIBLE);
         btnSignIn.setEnabled(false);
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        // if (progressBar != null) progressBar.setVisibility(View.GONE);
                         btnSignIn.setEnabled(true);
 
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithEmail:success");
-                            navigateToMainApp();
+                            Toast.makeText(SignIn.this, "Sign in successful!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SignIn.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish(); // Finish SignIn activity
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(SignIn.this, "Authentication failed: " + task.getException().getMessage(),
-                                    Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignIn.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
-    }
-
-    private void navigateToMainApp() {
-        Intent intent = new Intent(SignIn.this, MainActivity.class); // Or your main app activity
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish(); // Finish SignInActivity
     }
 }
