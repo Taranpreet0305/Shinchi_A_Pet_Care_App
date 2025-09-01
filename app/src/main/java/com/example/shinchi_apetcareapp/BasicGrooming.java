@@ -1,18 +1,21 @@
 package com.example.shinchi_apetcareapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 public class BasicGrooming extends Fragment {
 
+    private static final double BASIC_GROOMING_PRICE = 1500.00;
+
     public BasicGrooming() {
+        // Required empty public constructor
     }
 
     @Override
@@ -22,19 +25,27 @@ public class BasicGrooming extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@com.example.shinchi_apetcareapp.NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @com.example.shinchi_apetcareapp.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView bookNowButton = view.findViewById(R.id.textView28);
+        // Initialize the CartManager to ensure auth state is available
+        CartManager.getInstance().initialize(requireContext());
+
+        TextView bookNowButton = view.findViewById(R.id.book_now_btn);
 
         if (bookNowButton != null) {
-            bookNowButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(getActivity(), "Book Now clicked!", Toast.LENGTH_SHORT).show();
+            bookNowButton.setOnClickListener(v -> {
+                if (CartManager.getInstance().isUserLoggedIn()) {
+                    // User is logged in, navigate to the payment page.
+                    Intent intent = new Intent(getActivity(), PaymentPage.class);
+                    intent.putExtra(PaymentPage.EXTRA_TOTAL_PRICE, BASIC_GROOMING_PRICE);
+                    startActivity(intent);
+                } else {
+                    // User is not logged in, navigate to the sign-in page.
+                    Intent intent = new Intent(getActivity(), SignIn.class);
+                    startActivity(intent);
                 }
             });
         }
     }
 }
-

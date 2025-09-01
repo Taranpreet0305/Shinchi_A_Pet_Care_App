@@ -1,7 +1,8 @@
 package com.example.shinchi_apetcareapp;
 
-import androidx.annotation.NonNull; // Import this
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -15,35 +16,32 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth; // Import Firebase Auth
+import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    private ImageView hamburgerIcon; // Declare your hamburger icon
+    private ImageView hamburgerIcon;
 
-    // Your existing ImageView declarations for Pro, Grooming, carepage
     ImageView Btn1;
     ImageView Btn2;
     ImageView Btn3;
 
-    // Add a FirebaseAuth instance
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // Make sure this is your layout
+        setContentView(R.layout.activity_main);
 
-        // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
         drawerLayout = findViewById(R.id.drawer_layout_main);
         navigationView = findViewById(R.id.nav_view_main);
-        hamburgerIcon = findViewById(R.id.hamburger_icon); // Get reference to your ImageView
+        hamburgerIcon = findViewById(R.id.hamburger_icon);
 
-        // --- Setup click listener for your custom hamburger icon ---
         hamburgerIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +55,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        // --- Your existing ImageView setup for navigation ---
+        // Find the SwitchMaterial in the header
+        View headerView = navigationView.getHeaderView(0);
+        if (headerView != null) {
+            SwitchMaterial themeSwitch = headerView.findViewById(R.id.theme_switch);
+            if (themeSwitch != null) {
+                // Set the initial state of the switch based on the current theme
+                themeSwitch.setChecked(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES);
+
+                themeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if (isChecked) {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    } else {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    }
+                    recreate();
+                });
+            }
+        }
+
         Btn1 = findViewById(R.id.Pro);
         Btn2 = findViewById(R.id.Grooming);
         Btn3 = findViewById(R.id.carepage);
@@ -73,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, com.example.shinchi_apetcareapp.GroomingCat.class); // Assuming this is pet_gromming
+                Intent intent = new Intent(MainActivity.this, com.example.shinchi_apetcareapp.GroomingCat.class);
                 startActivity(intent);
             }
         });
@@ -87,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
-    // --- Handle Navigation Drawer item clicks ---
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -108,13 +123,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent = new Intent(MainActivity.this, com.example.shinchi_apetcareapp.product_category.class);
                 startActivity(intent);
             } else if (id == R.id.nav_profile) {
-                // Check if user is authenticated
                 if (mAuth.getCurrentUser() != null) {
-                    // User is authenticated, go to Profile Page
                     Intent intent = new Intent(MainActivity.this, com.example.shinchi_apetcareapp.Profile_Page.class);
                     startActivity(intent);
                 } else {
-                    // User is not authenticated, go to Sign In page
                     Intent intent = new Intent(MainActivity.this, com.example.shinchi_apetcareapp.SignIn.class);
                     startActivity(intent);
                 }

@@ -26,4 +26,15 @@
         app:strokeColor="#FFC107"
         app:strokeWidth="4dp" />
 
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/theme_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dark Mode"
+        android:layout_gravity="end"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:textColor="?attr/colorOnPrimary"
+        android:thumb="@drawable/ic_theme"/>
+
 </LinearLayout>

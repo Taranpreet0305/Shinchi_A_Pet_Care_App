@@ -1,0 +1,24 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <!-- Moon icon for dark mode -->
+        <vector android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24.0"
+            android:viewportHeight="24.0">
+            <path
+                android:fillColor="@android:color/white"
+                android:pathData="M12,3A9,9 0 0,0 12,21A9,9 0 0,0 21,12A9,9 0 0,0 12,3M19,13.5C18,17 14,20 10.5,19C7,18 4,14 5,10.5C6,7 10,4 13.5,5C17,6 20,10 19,13.5Z" />
+        </vector>
+    </item>
+    <item>
+        <!-- Sun icon for light mode -->
+        <vector android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24.0"
+            android:viewportHeight="24.0">
+            <path
+                android:fillColor="@android:color/black"
+                android:pathData="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M21,12L24,12M12,3V0M20,4L22.1,1.9M4,20L1.9,22.1M12,21V24M1.9,1.9L4,4M22.1,22.1L20,20M24,12L21,12" />
+        </vector>
+    </item>
+</selector>
