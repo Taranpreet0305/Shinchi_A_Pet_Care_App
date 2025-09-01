@@ -112,7 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Pain Relief"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
@@ -122,7 +122,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="PRICE"
+                        android:text="Rs.500"
                         android:textColor="#333D79"
                         android:textSize="25sp" />
 
@@ -189,7 +189,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="First-Aid Kit"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
@@ -199,7 +199,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="PRICE"
+                        android:text="Rs.550"
                         android:textColor="#333D79"
                         android:textSize="25sp" />
 
@@ -266,7 +266,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Vaccination"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
@@ -276,7 +276,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="PRICE"
+                        android:text="Rs.150"
                         android:textColor="#333D79"
                         android:textSize="25sp" />
 
@@ -343,7 +343,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Antibiotics"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
@@ -353,7 +353,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="PRICE"
+                        android:text="Rs.600"
                         android:textColor="#333D79"
                         android:textSize="25sp" />
 

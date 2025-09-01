@@ -1,12 +1,8 @@
 package com.example.shinchi_apetcareapp;
-
-import static android.content.ContentValues.TAG; // Potential issue: Using a generic TAG
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -15,7 +11,6 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.example.shinchi_apetcareapp.BasicGrooming;
 import com.example.shinchi_apetcareapp.DeluxeSpa;
 import com.example.shinchi_apetcareapp.R;
@@ -90,12 +85,10 @@ public class GroomingCat extends AppCompatActivity {
     private void loadFragment(Fragment fragment, int containerId) {
         Log.d(TAG, "loadFragment called for container ID: " + getResources().getResourceEntryName(containerId));
         FragmentManager fragmentManager = getSupportFragmentManager();
-
         if (findViewById(containerId) == null) {
             Log.e(TAG, "Fragment container with ID " + getResources().getResourceEntryName(containerId) + " not found!");
             return;
         }
-
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(containerId, fragment);
         fragmentTransaction.addToBackStack(null);

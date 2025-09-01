@@ -1,5 +1,4 @@
 package com.example.shinchi_apetcareapp;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class BasicGrooming extends Fragment {
-
     private static final double BASIC_GROOMING_PRICE = 1500.00;
-
     public BasicGrooming() {
-        // Required empty public constructor
     }
 
     @Override
@@ -27,21 +23,16 @@ public class BasicGrooming extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @com.example.shinchi_apetcareapp.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        // Initialize the CartManager to ensure auth state is available
         CartManager.getInstance().initialize(requireContext());
-
         TextView bookNowButton = view.findViewById(R.id.book_now_btn);
 
         if (bookNowButton != null) {
             bookNowButton.setOnClickListener(v -> {
                 if (CartManager.getInstance().isUserLoggedIn()) {
-                    // User is logged in, navigate to the payment page.
                     Intent intent = new Intent(getActivity(), PaymentPage.class);
                     intent.putExtra(PaymentPage.EXTRA_TOTAL_PRICE, BASIC_GROOMING_PRICE);
                     startActivity(intent);
                 } else {
-                    // User is not logged in, navigate to the sign-in page.
                     Intent intent = new Intent(getActivity(), SignIn.class);
                     startActivity(intent);
                 }

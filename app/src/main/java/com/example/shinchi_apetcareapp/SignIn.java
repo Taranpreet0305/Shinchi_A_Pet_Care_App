@@ -34,10 +34,8 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-
         mAuth = FirebaseAuth.getInstance();
 
-        // Check if the user is already signed in
         if (mAuth.getCurrentUser() != null) {
             startActivity(new Intent(SignIn.this, MainActivity.class));
             finish();
@@ -55,7 +53,6 @@ public class SignIn extends AppCompatActivity {
                 signInUser();
             }
         });
-
         tvRegisterLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,13 +71,11 @@ public class SignIn extends AppCompatActivity {
             etEmail.requestFocus();
             return;
         }
-
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             etEmail.setError("Enter a valid email.");
             etEmail.requestFocus();
             return;
         }
-
         if (TextUtils.isEmpty(password)) {
             etPassword.setError("Password is required.");
             etPassword.requestFocus();
@@ -101,7 +96,7 @@ public class SignIn extends AppCompatActivity {
                             Intent intent = new Intent(SignIn.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
-                            finish(); // Finish SignIn activity
+                            finish();
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(SignIn.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();

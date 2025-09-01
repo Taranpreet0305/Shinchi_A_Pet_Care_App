@@ -34,17 +34,14 @@ public class Profile_Page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
-
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-
         nameTextView = findViewById(R.id.Profile_Name);
         emailTextView = findViewById(R.id.Profile_Email);
         contactTextView = findViewById(R.id.Profile_Contact);
         addressTextView = findViewById(R.id.address_text);
         editProfileButton = findViewById(R.id.editButton);
         logoutButton = findViewById(R.id.logout_button);
-
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             userUid = currentUser.getUid();
@@ -56,14 +53,12 @@ public class Profile_Page extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-
         editProfileButton.setOnClickListener(v -> {
             Intent intent = new Intent(Profile_Page.this, UserDetails.class);
             intent.putExtra("USER_UID", userUid);
             intent.putExtra("IS_EDITING", true);
             startActivity(intent);
         });
-
         logoutButton.setOnClickListener(v -> {
             mAuth.signOut();
             Toast.makeText(Profile_Page.this, "Signed out successfully.", Toast.LENGTH_SHORT).show();

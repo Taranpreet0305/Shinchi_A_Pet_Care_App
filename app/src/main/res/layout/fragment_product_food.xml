@@ -121,7 +121,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="PRICE"
+                        android:text="Rs.350"
                         android:textColor="#333D79"
                         android:textSize="25sp" />
 
@@ -190,7 +190,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="PRICE"
+                        android:text="Rs.420"
                         android:textColor="#333D79"
                         android:textSize="25sp" />
 
@@ -259,7 +259,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="PRICE"
+                        android:text="Rs.450"
                         android:textColor="#333D79"
                         android:textSize="25sp" />
 
@@ -328,7 +328,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="PRICE"
+                        android:text="Rs.470"
                         android:textColor="#333D79"
                         android:textSize="25sp" />
 

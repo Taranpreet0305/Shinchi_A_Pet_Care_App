@@ -38,25 +38,19 @@ public class RegisterPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
-
         mAuth = FirebaseAuth.getInstance();
-
         etName = findViewById(R.id.RegName);
         etEmail = findViewById(R.id.RegEmail);
         etPassword = findViewById(R.id.RegPassword);
         btnRegister = findViewById(R.id.btnRegister);
         tvSignInLink = findViewById(R.id.btnSignIn);
         cbTerms = findViewById(R.id.cbTerms);
-
-        // progressBar = findViewById(R.id.your_progress_bar_id); // Initialize if you added one
-
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registerNewUser();
             }
         });
-
         tvSignInLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,61 +70,50 @@ public class RegisterPage extends AppCompatActivity {
             etName.requestFocus();
             return;
         }
-
         if (TextUtils.isEmpty(email)) {
             etEmail.setError("Email is required.");
             etEmail.requestFocus();
             return;
         }
-
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             etEmail.setError("Enter a valid email.");
             etEmail.requestFocus();
             return;
         }
-
         if (TextUtils.isEmpty(password)) {
             etPassword.setError("Password is required.");
             etPassword.requestFocus();
             return;
         }
-
         if (password.length() < 6) {
             etPassword.setError("Password must be at least 6 characters long.");
             etPassword.requestFocus();
             return;
         }
-
         if (!cbTerms.isChecked()) {
             Toast.makeText(RegisterPage.this, "Please agree to the Terms and Conditions.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // if (progressBar != null) progressBar.setVisibility(View.VISIBLE);
         btnRegister.setEnabled(false);
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        // if (progressBar != null) progressBar.setVisibility(View.GONE);
                         btnRegister.setEnabled(true);
-
                         if (task.isSuccessful()) {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(RegisterPage.this, "Registration successful. Please complete your profile.", Toast.LENGTH_SHORT).show();
-
                             if (user != null) {
-                                // Navigate to UserDetailsActivity (which will host UserDetails fragment)
                                 Intent intent = new Intent(RegisterPage.this, UserDetails.class);
                                 intent.putExtra("USER_UID", user.getUid());
                                 intent.putExtra("USER_NAME", name);
                                 intent.putExtra("USER_EMAIL", email);
-                                // Clear back stack so user can't navigate back to details/register pages once profile is complete
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
-                                finish(); // Finish RegisterPage
+                                finish();
                             } else {
                                 Log.w(TAG, "createUserWithEmail:success but user is null");
                                 Toast.makeText(RegisterPage.this, "Authentication succeeded but failed to retrieve user.", Toast.LENGTH_LONG).show();

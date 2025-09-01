@@ -13,19 +13,16 @@ import androidx.fragment.app.FragmentTransaction;
 public class product_category extends AppCompatActivity {
 
     private static final String TAG = "ProductCategoryActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_product_category);
         Log.d(TAG, "Activity layout (activity_product_category) set.");
-
         ImageView btn1 = findViewById(R.id.Food);
         ImageView btn2 =  findViewById(R.id.GroomingEss);
         ImageView btn3 =  findViewById(R.id.Meds);
         ImageView btn4 = findViewById(R.id.Toys);
-
         if (btn1 == null) {
             Log.e(TAG, "ImageView with ID 'Food' not found in activity_product_category.xml!");
             return;
@@ -42,7 +39,6 @@ public class product_category extends AppCompatActivity {
             Log.e(TAG, "ImageView with ID 'Toys' not found in activity_product_category.xml!");
             return;
         }
-
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,12 +81,10 @@ public class product_category extends AppCompatActivity {
     private void loadFragment(Fragment fragment, int containerId) {
         Log.d(TAG, "loadFragment called for container ID: " + getResources().getResourceEntryName(containerId));
         FragmentManager fragmentManager = getSupportFragmentManager();
-
         if (findViewById(containerId) == null) {
             Log.e(TAG, "Fragment container with ID " + getResources().getResourceEntryName(containerId) + " not found!");
             return;
         }
-
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(containerId, fragment);
         fragmentTransaction.addToBackStack(null);

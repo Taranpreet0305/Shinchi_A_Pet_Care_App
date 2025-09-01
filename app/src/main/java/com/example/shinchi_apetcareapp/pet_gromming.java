@@ -1,10 +1,8 @@
 package com.example.shinchi_apetcareapp;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -18,9 +16,7 @@ public class pet_gromming extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_pet_gromming);
-
         ImageView btn1=findViewById(R.id.Groom);
-
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,5 +25,4 @@ public class pet_gromming extends AppCompatActivity {
             }
         });
     }
-
 }

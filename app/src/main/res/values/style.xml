@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="Theme.Shinchi" parent="Theme.MaterialComponents.Light.NoActionBar">
+    </style>
     <!-- Style for NavigationView Menu Item Text -->
     <style name="CustomNavigationViewItemTextStyle" parent="TextAppearance.AppCompat.Body1">
         <item name="android:layout_marginTop">30dp</item>
@@ -10,6 +12,10 @@
     <style name="ShapeAppearance.App.Circle" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="RazorpayTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- You can customize the Razorpay checkout theme here if needed -->
     </style>
 
 </resources>

@@ -45,6 +45,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
+    implementation("com.razorpay:checkout:1.6.36") // Add this line
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

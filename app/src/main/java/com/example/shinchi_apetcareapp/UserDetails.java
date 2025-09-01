@@ -32,9 +32,7 @@ public class UserDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_user_details);
-
         db = FirebaseFirestore.getInstance();
-
         etUserName = findViewById(R.id.UserName);
         etUserEmail = findViewById(R.id.UserEmail);
         etUserContact = findViewById(R.id.UserContact);
@@ -42,20 +40,16 @@ public class UserDetails extends AppCompatActivity {
         etUserAddress = findViewById(R.id.UserAddress);
         btnRegister = findViewById(R.id.UDbtnRegister);
 
-        // Retrieve data from the intent
         Intent intent = getIntent();
         if (intent != null) {
             userUid = intent.getStringExtra("USER_UID");
             isEditing = intent.getBooleanExtra("IS_EDITING", false);
             String name = intent.getStringExtra("USER_NAME");
             String email = intent.getStringExtra("USER_EMAIL");
-
             if (isEditing) {
-                // Fetch and display existing user data for editing
                 fetchAndPopulateUserDetails(userUid);
                 btnRegister.setText("Save Changes");
             } else {
-                // Pre-fill name and email for new user registration
                 if (name != null) etUserName.setText(name);
                 if (email != null) etUserEmail.setText(email);
             }
@@ -104,15 +98,12 @@ public class UserDetails extends AppCompatActivity {
         if (userUid != null) {
             DocumentReference userRef = db.collection("users").document(userUid);
 
-            // Using set() with merge() for both new and existing documents
             userRef.set(userDetails, SetOptions.merge())
                     .addOnSuccessListener(aVoid -> {
                         Toast.makeText(this, "Details updated successfully!", Toast.LENGTH_SHORT).show();
                         if (isEditing) {
-                            // Go back to the profile page after updating
                             finish();
                         } else {
-                            // Navigate to Sign-in for new user
                             FirebaseAuth.getInstance().signOut();
                             Intent intent = new Intent(UserDetails.this, SignIn.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
