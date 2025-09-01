@@ -9,6 +9,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.SetOptions;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,15 +54,50 @@ public class CartManager {
             return;
         }
 
-        Map<String, Object> item = new HashMap<>();
-        item.put(itemName, quantity);
+        userCartRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                // If the document exists, update the item quantity.
+                Map<String, Object> updates = new HashMap<>();
+                updates.put(itemName, FieldValue.increment(quantity));
+                userCartRef.update(updates)
+                        .addOnSuccessListener(aVoid -> Toast.makeText(context, itemName + " added to cart!", Toast.LENGTH_SHORT).show())
+                        .addOnFailureListener(e -> {
+                            Log.e(TAG, "Error updating cart", e);
+                            Toast.makeText(context, "Failed to add " + itemName + " to cart.", Toast.LENGTH_SHORT).show();
+                        });
+            } else {
+                // If the document doesn't exist, create it.
+                Map<String, Object> newItem = new HashMap<>();
+                newItem.put(itemName, quantity);
+                userCartRef.set(newItem)
+                        .addOnSuccessListener(aVoid -> Toast.makeText(context, itemName + " added to cart!", Toast.LENGTH_SHORT).show())
+                        .addOnFailureListener(e -> {
+                            Log.e(TAG, "Error creating cart document", e);
+                            Toast.makeText(context, "Failed to add " + itemName + " to cart.", Toast.LENGTH_SHORT).show();
+                        });
+            }
+        }).addOnFailureListener(e -> {
+            Log.e(TAG, "Error checking for cart document existence", e);
+            Toast.makeText(context, "Failed to add " + itemName + " to cart.", Toast.LENGTH_SHORT).show();
+        });
+    }
 
-        userCartRef.set(item, SetOptions.merge())
-                .addOnSuccessListener(aVoid -> Toast.makeText(context, itemName + " added to cart!", Toast.LENGTH_SHORT).show())
-                .addOnFailureListener(e -> {
-                    Log.e(TAG, "Error adding item to cart", e);
-                    Toast.makeText(context, "Failed to add " + itemName + " to cart.", Toast.LENGTH_SHORT).show();
-                });
+    public void getCartItems(CartUpdateListener listener) {
+        if (userCartRef == null) {
+            Log.e(TAG, "Cart not initialized. User may not be logged in.");
+            listener.onCartUpdate(new HashMap<>());
+            return;
+        }
+        userCartRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                listener.onCartUpdate(documentSnapshot.getData());
+            } else {
+                listener.onCartUpdate(new HashMap<>());
+            }
+        }).addOnFailureListener(e -> {
+            Log.e(TAG, "Error fetching cart items", e);
+            listener.onCartUpdate(null);
+        });
     }
 
     public void clearCart() {
@@ -69,5 +106,9 @@ public class CartManager {
                     .addOnSuccessListener(aVoid -> Toast.makeText(context, "Cart cleared successfully.", Toast.LENGTH_SHORT).show())
                     .addOnFailureListener(e -> Log.e(TAG, "Error clearing cart", e));
         }
+    }
+
+    public boolean isUserLoggedIn() {
+        return mAuth.getCurrentUser() != null;
     }
 }

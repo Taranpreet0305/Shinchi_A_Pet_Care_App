@@ -19,6 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Shinchi">
         <activity
+            android:name=".unsuccessful_page"
+            android:exported="false" />
+        <activity
+            android:name=".successful_page"
+            android:exported="false" />
+        <activity
             android:name=".PaymentPage"
             android:exported="false" />
         <activity

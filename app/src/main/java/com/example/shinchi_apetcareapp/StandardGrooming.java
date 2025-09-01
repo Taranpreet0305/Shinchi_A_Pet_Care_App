@@ -61,4 +61,43 @@ public class StandardGrooming extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_standard_grooming, container, false);
     }
+    package com.example.shinchi_apetcareapp;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+
+    public class StandardGrooming extends AppCompatActivity {
+
+        private static final double STANDARD_GROOMING_PRICE = 2000.00; // As per your XML layout
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.fragment_standard_grooming);
+
+            // Initialize the CartManager to ensure auth state is available
+            CartManager.getInstance().initialize(this);
+
+            TextView bookNowBtn = findViewById(R.id.book_now_btn);
+
+            if (bookNowBtn != null) {
+                bookNowBtn.setOnClickListener(v -> {
+                    if (CartManager.getInstance().isUserLoggedIn()) {
+                        // User is logged in, navigate to the payment page.
+                        Intent intent = new Intent(StandardGrooming.this, PaymentPage.class);
+                        intent.putExtra(PaymentPage.EXTRA_TOTAL_PRICE, STANDARD_GROOMING_PRICE);
+                        startActivity(intent);
+                    } else {
+                        // User is not logged in, navigate to the sign-in page.
+                        Intent intent = new Intent(StandardGrooming.this, SignIn.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+        }
+    }
+
 }

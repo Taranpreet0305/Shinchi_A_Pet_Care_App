@@ -108,7 +108,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/meds_name"
+                        android:id="@+id/meds_name_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -118,7 +118,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/meds_price"
+                        android:id="@+id/meds_price_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -127,7 +127,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/meds_btn"
+                        android:id="@+id/meds_btn_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -185,7 +185,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/meds_name"
+                        android:id="@+id/meds_name_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -195,7 +195,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/meds_price"
+                        android:id="@+id/meds_price_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -204,7 +204,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/meds_btn"
+                        android:id="@+id/meds_btn_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -262,7 +262,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/meds_name"
+                        android:id="@+id/meds_name_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -272,7 +272,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/meds_price"
+                        android:id="@+id/meds_price_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -281,7 +281,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/meds_btn"
+                        android:id="@+id/meds_btn_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -339,7 +339,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/meds_name"
+                        android:id="@+id/meds_name_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -349,7 +349,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/meds_price"
+                        android:id="@+id/meds_price_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -358,7 +358,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/meds_btn"
+                        android:id="@+id/meds_btn_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -384,7 +384,6 @@
                 android:layout_marginHorizontal="16dp"
                 android:background="#DDDDDD" />
 
-            <!-- Go to Cart button added here -->
             <Button
                 android:id="@+id/go_to_cart_btn"
                 android:layout_width="wrap_content"
@@ -392,7 +391,6 @@
                 android:text="🛒 Go to Cart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/food_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="16dp" />
 

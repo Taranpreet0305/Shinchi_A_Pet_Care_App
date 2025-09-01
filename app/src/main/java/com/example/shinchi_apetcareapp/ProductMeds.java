@@ -1,6 +1,7 @@
 package com.example.shinchi_apetcareapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -13,43 +14,50 @@ import android.widget.Toast;
 
 public class ProductMeds extends Fragment {
 
-    private static final String PREFS_NAME = "cart_prefs";
-    private static final String CART_COUNT_KEY = "cart_count";
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_product_meds, container, false);
 
-        Button addToCartBtn = view.findViewById(R.id.meds_btn);
+        Button addToCartBtn1 = view.findViewById(R.id.meds_btn_1);
+        Button addToCartBtn2 = view.findViewById(R.id.meds_btn_2);
+        Button addToCartBtn3 = view.findViewById(R.id.meds_btn_3);
+        Button addToCartBtn4 = view.findViewById(R.id.meds_btn_4);
         Button goToCartBtn = view.findViewById(R.id.go_to_cart_btn);
 
-        if (addToCartBtn != null) {
-            addToCartBtn.setOnClickListener(v -> {
-                incrementCartCount();
-                Toast.makeText(getContext(), "Medicine added to cart!", Toast.LENGTH_SHORT).show();
+        if (addToCartBtn1 != null) {
+            addToCartBtn1.setOnClickListener(v -> {
+                CartManager.getInstance().addItem("Pills Bottle", 1);
+                Toast.makeText(getContext(), "Pills Bottle added to cart!", Toast.LENGTH_SHORT).show();
+            });
+        }
+        if (addToCartBtn2 != null) {
+            addToCartBtn2.setOnClickListener(v -> {
+                CartManager.getInstance().addItem("First Aid Kit", 1);
+                Toast.makeText(getContext(), "First Aid Kit added to cart!", Toast.LENGTH_SHORT).show();
+            });
+        }
+        if (addToCartBtn3 != null) {
+            addToCartBtn3.setOnClickListener(v -> {
+                CartManager.getInstance().addItem("Vaccination", 1);
+                Toast.makeText(getContext(), "Vaccination added to cart!", Toast.LENGTH_SHORT).show();
+            });
+        }
+        if (addToCartBtn4 != null) {
+            addToCartBtn4.setOnClickListener(v -> {
+                CartManager.getInstance().addItem("Drug", 1);
+                Toast.makeText(getContext(), "Drug added to cart!", Toast.LENGTH_SHORT).show();
             });
         }
 
         if (goToCartBtn != null) {
             goToCartBtn.setOnClickListener(v -> {
-                Toast.makeText(getContext(), "Navigating to cart!", Toast.LENGTH_SHORT).show();
-                // Add navigation logic to go to the cart activity/fragment
+                // Correct navigation to the cart activity
+                Intent intent = new Intent(getContext(), AddCart.class);
+                startActivity(intent);
             });
         }
 
         return view;
-    }
-
-    // Increments the cart count and saves it.
-    private void incrementCartCount() {
-        if (getContext() != null) {
-            SharedPreferences prefs = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-            int currentCount = prefs.getInt(CART_COUNT_KEY, 0);
-            currentCount++;
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt(CART_COUNT_KEY, currentCount);
-            editor.apply();
-        }
     }
 }

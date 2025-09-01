@@ -84,7 +84,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/toys_img"
+                    android:id="@+id/toys_img_1"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -104,21 +104,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/toys_img"
+                    app:layout_constraintStart_toEndOf="@id/toys_img_1"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/toys_name"
+                        android:id="@+id/toys_name_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Scratcher"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/toys_price"
+                        android:id="@+id/toys_price_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -127,7 +127,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/toys_btn"
+                        android:id="@+id/toys_btn_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add to Cart"
@@ -153,7 +153,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/toys_img"
+                    android:id="@+id/toys_img_2"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -173,21 +173,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/toys_img"
+                    app:layout_constraintStart_toEndOf="@id/toys_img_2"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/toys_name"
+                        android:id="@+id/toys_name_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Cat Toy"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/toys_price"
+                        android:id="@+id/toys_price_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -196,7 +196,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/toys_btn"
+                        android:id="@+id/toys_btn_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add to Cart"
@@ -222,7 +222,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/toys_img"
+                    android:id="@+id/toys_img_3"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -242,21 +242,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/toys_img"
+                    app:layout_constraintStart_toEndOf="@id/toys_img_3"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/toys_name"
+                        android:id="@+id/toys_name_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Pet Ball"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/toys_price"
+                        android:id="@+id/toys_price_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -265,7 +265,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/toys_btn"
+                        android:id="@+id/toys_btn_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add to Cart"
@@ -291,7 +291,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/toys_img"
+                    android:id="@+id/toys_img_4"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -311,21 +311,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/toys_img"
+                    app:layout_constraintStart_toEndOf="@id/toys_img_4"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/toys_name"
+                        android:id="@+id/toys_name_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Mouse Toy"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/toys_price"
+                        android:id="@+id/toys_price_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -334,7 +334,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/toys_btn"
+                        android:id="@+id/toys_btn_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add to Cart"
@@ -352,7 +352,6 @@
                 android:layout_marginHorizontal="16dp"
                 android:background="#DDDDDD" />
 
-            <!-- Go to Cart button added here -->
             <Button
                 android:id="@+id/go_to_cart_btn"
                 android:layout_width="wrap_content"
@@ -360,7 +359,6 @@
                 android:text="🛒 Go to Cart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/food_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="16dp" />
 

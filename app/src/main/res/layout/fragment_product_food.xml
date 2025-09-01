@@ -83,7 +83,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/food_image"
+                    android:id="@+id/food_image_1"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -103,21 +103,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/food_image"
+                    app:layout_constraintStart_toEndOf="@id/food_image_1"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/food_name"
+                        android:id="@+id/food_name_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Cat Food"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/food_price"
+                        android:id="@+id/food_price_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -126,13 +126,13 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/food_btn"
+                        android:id="@+id/food_btn_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add to Cart"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/food_price"
+                        app:layout_constraintTop_toBottomOf="@+id/food_price_1"
                         android:layout_marginTop="16dp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -152,7 +152,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/food_image"
+                    android:id="@+id/food_image_2"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -172,21 +172,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/food_image"
+                    app:layout_constraintStart_toEndOf="@id/food_image_2"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/food_name"
+                        android:id="@+id/food_name_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Dog Food"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/food_price2"
+                        android:id="@+id/food_price_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -195,13 +195,13 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/food_btn"
+                        android:id="@+id/food_btn_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add to Cart"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/food_price"
+                        app:layout_constraintTop_toBottomOf="@+id/food_price_2"
                         android:layout_marginTop="16dp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -221,7 +221,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/food_image"
+                    android:id="@+id/food_image_3"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -241,21 +241,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/food_image"
+                    app:layout_constraintStart_toEndOf="@id/food_image_3"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/food_name"
+                        android:id="@+id/food_name_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="General Pet Food"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/food_price"
+                        android:id="@+id/food_price_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -264,13 +264,13 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/food_btn"
+                        android:id="@+id/food_btn_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add to Cart"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/food_price"
+                        app:layout_constraintTop_toBottomOf="@+id/food_price_3"
                         android:layout_marginTop="16dp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -290,7 +290,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/food_image"
+                    android:id="@+id/food_image_4"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -310,21 +310,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/food_image"
+                    app:layout_constraintStart_toEndOf="@id/food_image_4"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/food_name"
+                        android:id="@+id/food_name_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Fish Food"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/food_price"
+                        android:id="@+id/food_price_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -333,13 +333,13 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/food_btn"
+                        android:id="@+id/food_btn_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Add to Cart"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/food_price"
+                        app:layout_constraintTop_toBottomOf="@+id/food_price_4"
                         android:layout_marginTop="16dp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -351,7 +351,6 @@
                 android:layout_marginHorizontal="16dp"
                 android:background="#DDDDDD" />
 
-            <!-- Go to Cart button added here -->
             <Button
                 android:id="@+id/go_to_cart_btn"
                 android:layout_width="wrap_content"
@@ -361,7 +360,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/food_btn" />
+                app:layout_constraintTop_toBottomOf="@id/food_btn_4" />
 
         </LinearLayout>
     </ScrollView>

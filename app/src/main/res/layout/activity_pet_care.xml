@@ -12,7 +12,6 @@
         android:layout_width="496dp"
         android:layout_height="251dp"
         android:layout_marginEnd="4dp"
-        android:onClick="Home.open"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -59,10 +58,11 @@
         app:layout_constraintVertical_bias="0.276" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/book_now_btn"
         android:layout_width="277dp"
         android:layout_height="77dp"
         android:background="@drawable/inputfielddraw"
+        android:gravity="center"
         android:text=" Book Now!!"
         android:textSize="50dp"
         android:textStyle="bold"

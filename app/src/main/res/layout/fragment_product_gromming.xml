@@ -84,7 +84,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/grooming_img"
+                    android:id="@+id/grooming_img_1"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -104,21 +104,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/grooming_img"
+                    app:layout_constraintStart_toEndOf="@id/grooming_img_1"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/grooming_name"
+                        android:id="@+id/grooming_name_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Dryer"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/grooming_price"
+                        android:id="@+id/grooming_price_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -127,7 +127,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/grooming_btn"
+                        android:id="@+id/grooming_btn_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -161,7 +161,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/grooming_img"
+                    android:id="@+id/grooming_img_2"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -181,21 +181,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/grooming_img"
+                    app:layout_constraintStart_toEndOf="@id/grooming_img_2"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/grooming_name"
+                        android:id="@+id/grooming_name_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Pet Shampoo"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/grooming_price"
+                        android:id="@+id/grooming_price_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -204,7 +204,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/grooming_btn"
+                        android:id="@+id/grooming_btn_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -238,7 +238,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/grooming_img"
+                    android:id="@+id/grooming_img_3"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -258,21 +258,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/grooming_img"
+                    app:layout_constraintStart_toEndOf="@id/grooming_img_3"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/grooming_name"
+                        android:id="@+id/grooming_name_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Nail Clipper"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/grooming_price"
+                        android:id="@+id/grooming_price_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -281,7 +281,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/grooming_btn"
+                        android:id="@+id/grooming_btn_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -315,7 +315,7 @@
                 android:layout_marginBottom="16dp">
 
                 <ImageView
-                    android:id="@+id/grooming_img"
+                    android:id="@+id/grooming_img_4"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@drawable/dashed_outline"
@@ -335,21 +335,21 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/grooming_img"
+                    app:layout_constraintStart_toEndOf="@id/grooming_img_4"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/grooming_name"
+                        android:id="@+id/grooming_name_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
-                        android:text="name"
+                        android:text="Grooming Set"
                         android:textColor="#333D79"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/grooming_price"
+                        android:id="@+id/grooming_price_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="serif"
@@ -358,7 +358,7 @@
                         android:textSize="25sp" />
 
                     <Button
-                        android:id="@+id/grooming_btn"
+                        android:id="@+id/grooming_btn_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -384,7 +384,6 @@
                 android:layout_marginHorizontal="16dp"
                 android:background="#DDDDDD" />
 
-            <!-- Go to Cart button added here -->
             <Button
                 android:id="@+id/go_to_cart_btn"
                 android:layout_width="wrap_content"
@@ -392,7 +391,6 @@
                 android:text="🛒 Go to Cart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/food_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="16dp" />
 

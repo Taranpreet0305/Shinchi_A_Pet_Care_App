@@ -1,9 +1,7 @@
 package com.example.shinchi_apetcareapp;
 
-/**
- * Interface for fragments to communicate with the hosting activity.
- * Fragments will use this to signal when an item should be added to the cart.
- */
+import java.util.Map;
+
 public interface CartUpdateListener {
-    void onAddToCart();
+    void onCartUpdate(Map<String, Object> cartItems);
 }
