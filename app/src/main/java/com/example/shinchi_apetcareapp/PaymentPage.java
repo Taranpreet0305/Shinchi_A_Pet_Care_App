@@ -1,4 +1,5 @@
 package com.example.shinchi_apetcareapp;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,11 @@ import java.util.Locale;
 
 public class PaymentPage extends AppCompatActivity implements PaymentResultListener {
 
+    // Key for price coming from the cart (as a double)
     public static final String EXTRA_TOTAL_PRICE = "TOTAL_PRICE";
+    // Key for price coming from pet_care (as a String)
+    public static final String EXTRA_PRICE_STRING = "price";
+
     private static final String TAG = "PaymentPage";
     private TextView totalAmountTextView;
     private TextView addressDetailsTextView;
@@ -32,14 +37,40 @@ public class PaymentPage extends AppCompatActivity implements PaymentResultListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_page);
         Checkout.preload(getApplicationContext());
+
+        // Initialize Views
         totalAmountTextView = findViewById(R.id.total_amount);
         addressDetailsTextView = findViewById(R.id.address_details);
         payNowButton = findViewById(R.id.pay_now_button);
+
+        // Initialize Firebase
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+
+        // Get the intent and extract the price
         Intent intent = getIntent();
-        totalPrice = intent.getDoubleExtra(EXTRA_TOTAL_PRICE, 0.0);
+        // First, check if the price is coming from the cart (as a double)
+        if (intent.hasExtra(EXTRA_TOTAL_PRICE)) {
+            totalPrice = intent.getDoubleExtra(EXTRA_TOTAL_PRICE, 0.0);
+        }
+        // Else, check if the price is coming from another page like pet_care (as a String)
+        else if (intent.hasExtra(EXTRA_PRICE_STRING)) {
+            String priceString = intent.getStringExtra(EXTRA_PRICE_STRING);
+            try {
+                // Remove non-numeric characters and parse to double
+                String numericString = priceString.replaceAll("[^\\d.]", "");
+                if (!numericString.isEmpty()) {
+                    totalPrice = Double.parseDouble(numericString);
+                }
+            } catch (NumberFormatException e) {
+                totalPrice = 0.0; // Default to 0 if parsing fails
+                Log.e(TAG, "Could not parse price string: " + priceString, e);
+            }
+        }
+
+        // Set the total amount on the screen
         totalAmountTextView.setText(String.format(Locale.getDefault(), "₹%.2f", totalPrice));
+
         fetchUserAddress();
         payNowButton.setOnClickListener(v -> startPayment());
     }
@@ -74,18 +105,27 @@ public class PaymentPage extends AppCompatActivity implements PaymentResultListe
             Toast.makeText(this, "You need to be logged in to pay.", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        // Ensure the price is valid before starting payment
+        if (totalPrice <= 0) {
+            Toast.makeText(this, "Invalid amount. Cannot proceed with payment.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         final Activity activity = this;
         final Checkout checkout = new Checkout();
-        checkout.setKeyID("rzp_test_RCRP7NkuZkb8Ed");
+        checkout.setKeyID("rzp_test_RCRP7NkuZkb8Ed"); // Remember to use your actual key in production
         try {
             JSONObject options = new JSONObject();
             options.put("name", "Shinchi Pet Care");
             options.put("description", "Order Payment");
             options.put("theme.color", "#3399cc");
             options.put("currency", "INR");
-            options.put("amount", (int) (totalPrice * 100));
+            options.put("amount", (int) (totalPrice * 100)); // Amount in paise
             JSONObject prefill = new JSONObject();
             prefill.put("email", currentUser.getEmail());
+            // You can also prefill contact number if you have it
+            // prefill.put("contact", "9999999999");
             options.put("prefill", prefill);
             checkout.open(activity, options);
         } catch (Exception e) {
@@ -98,7 +138,10 @@ public class PaymentPage extends AppCompatActivity implements PaymentResultListe
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
             Toast.makeText(this, "Payment Successful: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
-            CartManager.getInstance().clearCart();
+            // Clear the cart only if the payment was for the cart items
+            if (getIntent().hasExtra(EXTRA_TOTAL_PRICE)) {
+                CartManager.getInstance().clearCart();
+            }
             Intent successIntent = new Intent(PaymentPage.this, successful_page.class);
             successIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(successIntent);
@@ -119,4 +162,3 @@ public class PaymentPage extends AppCompatActivity implements PaymentResultListe
         }
     }
 }
-

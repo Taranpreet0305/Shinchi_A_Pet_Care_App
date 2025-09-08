@@ -60,9 +60,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".pet_gromming"
-            android:exported="false" />
-        <activity
             android:name=".product_category"
             android:exported="false" />
         <activity

@@ -130,19 +130,11 @@
                         android:id="@+id/grooming_btn_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="8dp"
-                        android:backgroundTint="#FFC107"
-                        android:text="ADD TO CART"
-                        android:textColor="#333D79"
-                        android:textSize="14sp"
-                        app:cornerRadius="16dp"
-                        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-                        app:icon="@drawable/addcart"
-                        app:iconTint="#333D79"
-                        app:iconGravity="textStart"
-                        app:iconPadding="8dp" />
+                        android:text="Add to Cart"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/food_price_1"
+                        android:layout_marginTop="16dp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -207,19 +199,11 @@
                         android:id="@+id/grooming_btn_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="8dp"
-                        android:backgroundTint="#FFC107"
-                        android:text="ADD TO CART"
-                        android:textColor="#333D79"
-                        android:textSize="14sp"
-                        app:cornerRadius="16dp"
-                        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-                        app:icon="@drawable/addcart"
-                        app:iconTint="#333D79"
-                        app:iconGravity="textStart"
-                        app:iconPadding="8dp" />
+                        android:text="Add to Cart"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/food_price_1"
+                        android:layout_marginTop="16dp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -284,19 +268,11 @@
                         android:id="@+id/grooming_btn_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="8dp"
-                        android:backgroundTint="#FFC107"
-                        android:text="ADD TO CART"
-                        android:textColor="#333D79"
-                        android:textSize="14sp"
-                        app:cornerRadius="16dp"
-                        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-                        app:icon="@drawable/addcart"
-                        app:iconTint="#333D79"
-                        app:iconGravity="textStart"
-                        app:iconPadding="8dp" />
+                        android:text="Add to Cart"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/food_price_1"
+                        android:layout_marginTop="16dp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -361,19 +337,11 @@
                         android:id="@+id/grooming_btn_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="8dp"
-                        android:backgroundTint="#FFC107"
-                        android:text="ADD TO CART"
-                        android:textColor="#333D79"
-                        android:textSize="14sp"
-                        app:cornerRadius="16dp"
-                        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-                        app:icon="@drawable/addcart"
-                        app:iconTint="#333D79"
-                        app:iconGravity="textStart"
-                        app:iconPadding="8dp" />
+                        android:text="Add to Cart"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/food_price_1"
+                        android:layout_marginTop="16dp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 

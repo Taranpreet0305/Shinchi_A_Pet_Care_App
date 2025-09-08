@@ -58,6 +58,20 @@
         app:layout_constraintVertical_bias="0.276" />
 
     <TextView
+        android:id="@+id/price_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/amoresa"
+        android:text="Rs. 2500"
+        android:textColor="#333D79"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/book_now_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
         android:id="@+id/book_now_btn"
         android:layout_width="277dp"
         android:layout_height="77dp"
@@ -70,5 +84,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17"
-        app:layout_constraintVertical_bias="0.175" />
+        app:layout_constraintVertical_bias="0.6" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
